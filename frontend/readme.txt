@@ -1,1 +1,0 @@
-frontend templates will be in this folder.
