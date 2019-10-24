@@ -1,0 +1,96 @@
+@import '../../../@theme/styles/themes';
+@include nb-install-component() {
+    .buttons-row {
+      margin: -0.5rem;
+    }
+}
+h5{
+    text-align: center;
+    font-family: serif;
+    color:white;
+}
+
+#working-menu{
+    background-color: #436bab;
+    background-image: linear-gradient(to bottom,#0f3f8c,#436bab);
+    width:100%;
+}
+
+ #btn-work{
+     //margin-top:3px;
+    //text-align: center;
+    width:35%;
+ }
+
+// .btn{
+//     width:80%;
+// }
+
+button.btn.btn-warning{
+    margin-right:2px;
+}
+
+nb-card{
+    margin-top:3px;
+}
+
+nb-card-body{
+    padding:10px;
+
+    > * {
+        margin-top: 1rem;
+      }
+}
+
+.formInput{
+    margin-bottom: 1%;
+}
+
+
+#saveMsg{
+    //border: 1px solid green;
+    position:absolute;
+    width:65%;
+    height:5%;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+
+#submitStatusMsg {
+    -webkit-animation: seconds 1.0s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: seconds 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 5s;
+    position: relative;
+    //background: rgb(206, 73, 73);
+    position:absolute;
+    color:white;
+    margin-left:20vw;
+    margin-top:20vh;
+    margin-right:20vw;
+    border-radius: 5px;
+    font-family: serif;
+    font-weight: 600;
+    padding: 2%;
+  }
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      left: -9999px; 
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      left: -9999px; 
+    }
+  }
