@@ -1,0 +1,167 @@
+@import '../../../@theme/styles/themes';
+@include nb-install-component() {
+    .buttons-row {
+      margin: -0.5rem;
+    }
+}
+h5{
+    text-align: center;
+    font-family: serif;
+    color:white;
+}
+
+#noTask{
+    visibility: hidden;
+}
+
+#working-menu{
+    background-color: #436bab;
+    background-image: linear-gradient(to bottom,#0f3f8c,#436bab);
+    width:100%;
+}
+
+#btn-work{
+    margin-top:3px;
+    margin-right:2px;
+   //text-align: center;
+   width:35%;
+}
+
+#div_form{
+    margin-top:1%;
+}
+
+
+
+#submitStatusMsg {
+    -webkit-animation: seconds 1.0s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: seconds 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 5s;
+    position: relative;
+    //background: rgb(206, 73, 73);
+    position:absolute;
+    color:white;
+    margin-left:20vw;
+    margin-top:20vh;
+    margin-right:20vw;
+    border-radius: 5px;
+    font-family: serif;
+    font-weight: 600;
+    padding: 2%; 
+  }
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      left: -9999px; 
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      left: -9999px; 
+    }
+  }
+
+
+
+  #viewDetails:hover #tooltiptext{
+      visibility: visible;
+  }
+
+  #tooltiptext{
+      visibility: hidden;
+      position: absolute;
+      margin-top:75px;
+      margin-left:-42px;
+      background-color: aliceblue;
+      border:1px solid black;
+      border-radius: 3px;
+      padding:2px;
+      width:50px;
+      text-align: center;
+      
+  }
+
+  #viewEdit:hover #tooltipedittext{
+    visibility: visible;
+}
+
+#tooltipedittext{
+    visibility: hidden;
+    position: absolute;
+    margin-top:75px;
+    margin-right:2px;
+    background-color: aliceblue;
+    border:1px solid black;
+    border-radius: 3px;
+    padding:2px;
+    width:50px;
+    text-align: center;
+    
+}
+
+
+
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 60%;
+  height: 60%;
+  margin-top: 15%;
+  margin-left:35%;
+  text-align: center;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background: rgb(48, 46, 46);
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 6px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 26px;
+  animation-delay: -0.18s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 45px;
+  animation-delay: -0.12;
+}
+.lds-facebook div:nth-child(4) {
+  left: 63px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 6px;
+    height: 88px;
+  }
+  50% {
+    top: 19px;
+    height: 63px;
+  }
+  75%{
+    top: 22px;
+    height: 53px;
+  }
+  100% {
+    top: 25px;
+    height: 43px;
+  }
+}
+

@@ -1,0 +1,127 @@
+<div class="row">
+
+  <div class="row" id="working-menu">
+      <div class="col-md-8">
+          <h5 class="mat-h1">Task Types</h5>
+      </div>
+      <div class="col-md-4">
+          <div style="text-align: right">
+            <button id="btn-work" class="btn btn-warning" (click)="createClickedFunc()"><i class="fa fa-plus"></i> Create
+            New</button>
+            <button id="btn-work" class="btn btn-success" (click)="viewClickedFunc()"><i class="fa fa-clone"></i> View
+              All</button>
+          </div>
+      </div> 
+      
+  </div>
+  
+
+
+  <div class="col-md-10" id="form-menu">
+    <!-- <h5>Task Types</h5> -->
+
+    <div *ngIf=createClicked>
+      <nb-card>
+
+        <nb-card-header>{{formHeadline}}</nb-card-header>
+        <nb-card-body>
+          <form (ngSubmit)="submitTaskType(f)" #f="ngForm">
+            <input class="formInput" type="text" nbInput fullWidth placeholder="Task Type Name"
+              [(ngModel)]="taskType.name" name="name" required #tasktypename="ngModel">
+            <span class="badge badge-danger formInput" *ngIf="!tasktypename.valid && tasktypename.touched">Please enter
+              a task type.</span>
+            <!-- <input type="text" [value]="6113" [(ngModel)] = "taskType.areaId" name="areaId"> -->
+            <textarea class="formInput" rows="5" nbInput fullWidth shape="round" placeholder="Description"
+              [(ngModel)]="taskType.description" name="description"></textarea>
+            <hr>
+            <button type="submit" style="width:155px;margin:3px" class="btn btn-danger"
+              [disabled]="!f.valid || f.submitted">Save</button>
+            <button style="width:155px;margin:3px" class="btn btn-secondary" [disabled]="!f.valid || f.submitted">Reset</button>
+
+            
+
+          </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+
+    <div *ngIf=viewClicked>
+
+      <nb-card-header>All Task Type Lists</nb-card-header>
+      <nb-card-body>
+        <div class="mat-elevation-z8">
+        <table mat-table [dataSource] = "dataSource" class="table table-striped table-hover"  >
+           <!--  <tr>
+              <th>SL#</th>
+              <th>Task Type Name</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr> -->
+          <!-- <tr *ngFor="let taskType of taskTypeList;let  i=index">
+            <td>{{i+1}}</td><td>{{taskType.name}}</td><td>{{taskType.description}}</td>
+            <td><i (click)="editTaskType(taskType.id)" class="fa fa-edit" style="cursor:pointer"></i></td>
+          </tr> -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>SL#</th>
+            <td mat-cell *matCellDef = "let element; let sl=index;">{{sl+1}}</td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef = "let element">{{element.name}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef = "let element">{{element.description}}</td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef = "let element; let i=index;"><i (click)="editTaskType(element.id)" class="fa fa-edit" style="cursor:pointer"></i></td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns">
+            
+          </tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+
+        </table>
+        <mat-paginator [pageSizeOptions] = "[5,10,20]" showFirstLastButtons></mat-paginator>
+      </div>
+      </nb-card-body>
+
+    </div>
+
+
+    <div *ngIf=editClicked>
+
+      <nb-card-header>Edit Task Type</nb-card-header>
+
+    </div>
+
+  </div>
+  <!-- <div class="col-md-2" id="working-menu">
+    <br>
+    <div id="btn-work"><button class="btn btn-primary" (click)="createClickedFunc()"><i class="fa fa-plus"></i> Create
+        New</button></div>
+    <div id="btn-work"><button class="btn btn-success" (click)="viewClickedFunc()"><i class="fa fa-clone"></i> View
+        All</button></div>
+    <div id="btn-work"><button class="btn btn-warning" (click)="editClickedFunc()"><i class="fa fa-edit"></i>
+        Edit</button></div>
+  </div> -->
+
+
+<!-- showing save success message -->
+<div *ngIf=saveStatus id="submitStatusMsg" style="background-color: seagreen" role="alert">
+    
+  You have succesfully {{add_editMsg}} Task Type- {{taskType.name}}.
+</div>
+ <div *ngIf="!saveStatus && formSubmit" id="submitStatusMsg" style="background-color: rgb(206, 73, 73)">
+    
+  Your Task Type have not been saved.
+</div> 
+
+
+
+</div>
